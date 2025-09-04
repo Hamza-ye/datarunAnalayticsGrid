@@ -45,7 +45,7 @@ describe('Auth JWT', () => {
 
       // WHEN
       service.login({ username: 'John', password: '123', rememberMe: true }).subscribe();
-      httpMock.expectOne('api/authenticate').flush({ id_token: '1' });
+      httpMock.expectOne('api/v1/authenticate').flush({ id_token: '1' });
 
       // THEN
       httpMock.verify();
@@ -58,7 +58,7 @@ describe('Auth JWT', () => {
 
       // WHEN
       service.login({ username: 'John', password: '123', rememberMe: false }).subscribe();
-      httpMock.expectOne('api/authenticate').flush({ id_token: '1' });
+      httpMock.expectOne('api/v1/authenticate').flush({ id_token: '1' });
 
       // THEN
       httpMock.verify();

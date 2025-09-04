@@ -15,7 +15,7 @@ export class AuthorityService {
   protected readonly http = inject(HttpClient);
   protected readonly applicationConfigService = inject(ApplicationConfigService);
 
-  protected resourceUrl = this.applicationConfigService.getEndpointFor('api/authorities');
+  protected resourceUrl = this.applicationConfigService.getEndpointFor('api/v1/authorities');
 
   create(authority: NewAuthority): Observable<EntityResponseType> {
     return this.http.post<IAuthority>(this.resourceUrl, authority, { observe: 'response' });

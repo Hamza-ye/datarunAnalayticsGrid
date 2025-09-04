@@ -23,7 +23,7 @@ export default class RegisterComponent implements AfterViewInit {
   success = signal(false);
 
   registerForm = new FormGroup({
-    login: new FormControl('', {
+    username: new FormControl('', {
       nonNullable: true,
       validators: [
         Validators.required,
@@ -62,9 +62,9 @@ export default class RegisterComponent implements AfterViewInit {
     if (password !== confirmPassword) {
       this.doNotMatch.set(true);
     } else {
-      const { login, email } = this.registerForm.getRawValue();
+      const { username, email } = this.registerForm.getRawValue();
       this.registerService
-        .save({ login, email, password, langKey: 'en' })
+        .save({ login: username, email, password, langKey: 'en' })
         .subscribe({ next: () => this.success.set(true), error: response => this.processError(response) });
     }
   }

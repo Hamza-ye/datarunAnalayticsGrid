@@ -78,7 +78,7 @@ describe('User Management Update Component', () => {
       [],
       fakeAsync(() => {
         // GIVEN
-        const entity = { login: 'foo' } as User;
+        const entity = { username: 'foo' } as User;
         jest.spyOn(service, 'create').mockReturnValue(of(entity));
         comp.editForm.patchValue(entity);
         // WHEN

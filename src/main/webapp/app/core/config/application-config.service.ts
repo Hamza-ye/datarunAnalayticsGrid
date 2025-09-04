@@ -20,6 +20,9 @@ export class ApplicationConfigService {
   }
 
   getEndpointFor(api: string, microservice?: string): string {
+    // Ensure `api` starts with "api/"
+    // const normalizedApi = api.startsWith('api/') ? api.replace(/^api\//, 'api/v1/') : `api/v1/${api}`;
+
     if (microservice) {
       return `${this.endpointPrefix}services/${microservice}/${api}`;
     }

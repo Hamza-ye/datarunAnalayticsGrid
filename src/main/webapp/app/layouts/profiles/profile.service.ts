@@ -11,7 +11,7 @@ export class ProfileService {
   private readonly http = inject(HttpClient);
   private readonly applicationConfigService = inject(ApplicationConfigService);
 
-  private readonly infoUrl = this.applicationConfigService.getEndpointFor('management/info');
+  private readonly infoUrl = this.applicationConfigService.getEndpointFor('api/management/info');
   private profileInfo$?: Observable<ProfileInfo>;
 
   getProfileInfo(): Observable<ProfileInfo> {

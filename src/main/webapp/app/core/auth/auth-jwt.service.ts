@@ -7,8 +7,9 @@ import { Login } from 'app/login/login.model';
 import { ApplicationConfigService } from '../config/application-config.service';
 import { StateStorageService } from './state-storage.service';
 
-type JwtToken = {
-  id_token: string;
+type serverToken = {
+  accessToken: string;
+  refreshToken: string;
 };
 
 @Injectable({ providedIn: 'root' })
@@ -23,7 +24,7 @@ export class AuthServerProvider {
 
   login(credentials: Login): Observable<void> {
     return this.http
-      .post<JwtToken>(this.applicationConfigService.getEndpointFor('api/authenticate'), credentials)
+      .post<serverToken>(this.applicationConfigService.getEndpointFor('api/v1/authenticate'), credentials)
       .pipe(map(response => this.authenticateSuccess(response, credentials.rememberMe)));
   }
 
@@ -34,7 +35,7 @@ export class AuthServerProvider {
     });
   }
 
-  private authenticateSuccess(response: JwtToken, rememberMe: boolean): void {
-    this.stateStorageService.storeAuthenticationToken(response.id_token, rememberMe);
+  private authenticateSuccess(response: serverToken, rememberMe: boolean): void {
+    this.stateStorageService.storeAuthenticationToken(response.accessToken, response.refreshToken, rememberMe);
   }
 }

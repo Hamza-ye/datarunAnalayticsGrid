@@ -5,7 +5,7 @@ export class StateStorageService {
   private readonly previousUrlKey = 'previousUrl';
   private readonly accessTokenKey = 'app-accessToken';
   private readonly refreshTokenKey = 'app-refreshToken';
-  private readonly authenticationKey = 'app-authenticationToken';
+  // private readonly authenticationKey = 'app-authenticationToken';
 
   storeUrl(url: string): void {
     sessionStorage.setItem(this.previousUrlKey, JSON.stringify(url));
@@ -20,23 +20,26 @@ export class StateStorageService {
     sessionStorage.removeItem(this.previousUrlKey);
   }
 
-  storeAuthenticationToken(authenticationToken: string, rememberMe: boolean): void {
-    authenticationToken = JSON.stringify(authenticationToken);
+  storeAuthenticationToken(accessToken: string, refreshToken: string, rememberMe: boolean): void {
+    accessToken = JSON.stringify(accessToken);
+    refreshToken = JSON.stringify(refreshToken);
     this.clearAuthenticationToken();
     if (rememberMe) {
-      localStorage.setItem(this.authenticationKey, authenticationToken);
+      localStorage.setItem(this.accessTokenKey, accessToken);
+      localStorage.setItem(this.refreshTokenKey, refreshToken);
     } else {
-      sessionStorage.setItem(this.authenticationKey, authenticationToken);
+      sessionStorage.setItem(this.accessTokenKey, accessToken);
     }
   }
 
   getAuthenticationToken(): string | null {
-    const authenticationToken = localStorage.getItem(this.authenticationKey) ?? sessionStorage.getItem(this.authenticationKey);
+    const authenticationToken = localStorage.getItem(this.accessTokenKey) ?? sessionStorage.getItem(this.accessTokenKey);
     return authenticationToken ? (JSON.parse(authenticationToken) as string | null) : authenticationToken;
   }
 
   clearAuthenticationToken(): void {
-    sessionStorage.removeItem(this.authenticationKey);
-    localStorage.removeItem(this.authenticationKey);
+    sessionStorage.removeItem(this.accessTokenKey);
+    localStorage.removeItem(this.accessTokenKey);
+    localStorage.removeItem(this.refreshTokenKey);
   }
 }

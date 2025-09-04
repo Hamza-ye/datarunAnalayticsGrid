@@ -48,7 +48,7 @@
                   <button
                     class="btn btn-success btn-sm"
                     (click)="setActive(user, false)"
-                    [disabled]="!currentAccount() || currentAccount()?.login === user.login"
+                    [disabled]="!currentAccount() || currentAccount()?.username === user.login"
                   >
                     Activated
                   </button>
@@ -85,7 +85,7 @@
                     type="button"
                     (click)="deleteUser(user)"
                     class="btn btn-danger btn-sm"
-                    [disabled]="!currentAccount() || currentAccount()?.login === user.login"
+                    [disabled]="!currentAccount() || currentAccount()?.username === user.login"
                   >
                     <fa-icon icon="times"></fa-icon>
                     <span class="d-none d-md-inline">Delete</span>

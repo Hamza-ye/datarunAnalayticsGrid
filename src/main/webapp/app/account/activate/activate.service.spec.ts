@@ -37,7 +37,7 @@ describe('ActivateService Service', () => {
       });
       const testRequest = httpMock.expectOne({
         method: 'GET',
-        url: applicationConfigService.getEndpointFor(`api/activate?key=${key}`),
+        url: applicationConfigService.getEndpointFor(`api/v1/activate?key=${key}`),
       });
       testRequest.flush(value);
 

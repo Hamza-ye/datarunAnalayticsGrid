@@ -15,7 +15,7 @@ export class UserService {
   protected readonly http = inject(HttpClient);
   protected readonly applicationConfigService = inject(ApplicationConfigService);
 
-  protected resourceUrl = this.applicationConfigService.getEndpointFor('api/users');
+  protected resourceUrl = this.applicationConfigService.getEndpointFor('api/v1/users');
 
   find(id: number): Observable<EntityResponseType> {
     return this.http.get<IUser>(`${this.resourceUrl}/${id}`, { observe: 'response' });

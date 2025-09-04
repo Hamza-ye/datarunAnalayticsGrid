@@ -1,9 +1,9 @@
 <div>
   <div class="d-flex justify-content-center">
     <div class="col-md-8">
-      @if (settingsForm.value.login) {
+      @if (settingsForm.value.username) {
         <h2>
-          User settings for [<strong>{{ settingsForm.value.login }}</strong
+          User settings for [<strong>{{ settingsForm.value.username }}</strong
           >]
         </h2>
       }
@@ -14,7 +14,7 @@
 
       <app-alert-error />
 
-      @if (settingsForm.value.login) {
+      @if (settingsForm.value.username) {
         <form name="form" (ngSubmit)="save()" [formGroup]="settingsForm" novalidate>
           <div class="mb-3">
             <label class="form-label" for="firstName">First Name</label>
