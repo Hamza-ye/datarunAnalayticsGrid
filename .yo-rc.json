@@ -1,0 +1,19 @@
+{
+  "generator-jhipster": {
+    "baseName": "datarunAnalayticsGrid",
+    "clientFramework": "angular",
+    "clientTestFrameworks": [],
+    "clientTheme": "none",
+    "creationTimestamp": 1756997416534,
+    "enableTranslation": false,
+    "entities": [],
+    "jhiPrefix": "app",
+    "jhipsterVersion": "8.11.0",
+    "microfrontend": null,
+    "microfrontends": [],
+    "nativeLanguage": "en",
+    "skipServer": true,
+    "testFrameworks": [],
+    "withAdminUi": false
+  }
+}
