@@ -1,9 +1,9 @@
 {
   "generator-jhipster": {
-    "baseName": "datarunAnalayticsGrid",
+    "baseName": "datarunAnalyticsGrid",
     "clientFramework": "angular",
     "clientTestFrameworks": [],
-    "clientTheme": "none",
+    "clientTheme": "Pulse",
     "creationTimestamp": 1756997416534,
     "enableTranslation": false,
     "entities": [],

@@ -16,6 +16,7 @@ const newUser: IUser = {
   selector: 'app-user-mgmt-update',
   templateUrl: './user-management-update.component.html',
   imports: [SharedModule, FormsModule, ReactiveFormsModule],
+  standalone: true,
 })
 export default class UserManagementUpdateComponent implements OnInit {
   authorities = signal<string[]>([]);

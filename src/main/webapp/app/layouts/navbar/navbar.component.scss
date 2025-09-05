@@ -1,4 +1,5 @@
 @import 'bootstrap/scss/functions';
+@import 'bootswatch/dist/Pulse/variables';
 @import 'bootstrap/scss/variables';
 
 /* ==========================================================================
@@ -17,9 +18,20 @@ Navbar
 
 .navbar {
   padding: 0.2rem 1rem;
+  .dropdown-item.active,
+  .dropdown-item.active:focus,
+  .dropdown-item.active:hover {
+    background-color: $dark;
+  }
 
   a.nav-link {
     font-weight: 400;
+  }
+
+  .navbar-toggler {
+    &:hover {
+      color: $navbar-dark-hover-color;
+    }
   }
 }
 
