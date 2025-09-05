@@ -3,6 +3,7 @@ import { SortOrder, SortState } from './sort-state';
 
 @Directive({
   selector: '[appSort]',
+  standalone: true,
 })
 export class SortDirective {
   readonly sortState = model.required<SortState>();

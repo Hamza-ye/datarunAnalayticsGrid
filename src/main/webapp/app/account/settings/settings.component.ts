@@ -11,6 +11,7 @@ const initialAccount: Account = {} as Account;
   selector: 'app-settings',
   imports: [SharedModule, FormsModule, ReactiveFormsModule],
   templateUrl: './settings.component.html',
+  standalone: true,
 })
 export default class SettingsComponent implements OnInit {
   success = signal(false);

@@ -17,6 +17,7 @@ import MainComponent from './layouts/main/main.component';
     MainComponent,
     // jhipster-needle-angular-add-module JHipster will add new module here
   ],
+  standalone: true,
 })
 export default class AppComponent {
   private readonly applicationConfigService = inject(ApplicationConfigService);

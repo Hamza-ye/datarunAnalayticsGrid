@@ -14,7 +14,7 @@ module.exports = async (config, options, targetOptions) => {
   if (config.mode === 'development') {
     config.plugins.push(
       new WebpackNotifierPlugin({
-        title: 'Datarun Analaytics Grid',
+        title: 'Datarun Analytics Grid',
         contentImage: path.join(__dirname, 'logo-datarun.png'),
       }),
     );

@@ -15,6 +15,7 @@ import NavbarItem from './navbar-item.model';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
   imports: [RouterModule, SharedModule, HasAnyAuthorityDirective],
+  standalone: true,
 })
 export default class NavbarComponent implements OnInit {
   inProduction?: boolean;

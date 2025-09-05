@@ -25,7 +25,7 @@ describe('Navbar Component', () => {
     firstName: 'John',
     langKey: '',
     lastName: 'Doe',
-    login: 'john.doe',
+    username: 'john.doe',
     imageUrl: '',
   };
 

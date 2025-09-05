@@ -15,6 +15,7 @@ import { AuthorityDeleteDialogComponent } from '../delete/authority-delete-dialo
   selector: 'app-authority',
   templateUrl: './authority.component.html',
   imports: [RouterModule, FormsModule, SharedModule, SortDirective, SortByDirective],
+  standalone: true,
 })
 export class AuthorityComponent implements OnInit {
   subscription: Subscription | null = null;

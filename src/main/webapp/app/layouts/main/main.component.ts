@@ -11,6 +11,7 @@ import PageRibbonComponent from '../profiles/page-ribbon.component';
   templateUrl: './main.component.html',
   providers: [AppPageTitleStrategy],
   imports: [RouterOutlet, FooterComponent, PageRibbonComponent],
+  standalone: true,
 })
 export default class MainComponent implements OnInit {
   private readonly router = inject(Router);

@@ -1,7 +1,7 @@
 export class Account {
   constructor(
     public activated: boolean,
-    public authorities: string[],
+    public authorities: AppAuthority[],
     public email: string,
     public firstName: string | null,
     public langKey: string,
@@ -9,4 +9,8 @@ export class Account {
     public username: string,
     public imageUrl: string | null,
   ) {}
+}
+
+export class AppAuthority {
+  constructor(public authority: string) {}
 }

@@ -5,7 +5,7 @@ import { Observable, ReplaySubject, of } from 'rxjs';
 import { catchError, shareReplay, tap } from 'rxjs/operators';
 
 import { StateStorageService } from 'app/core/auth/state-storage.service';
-import { Account } from 'app/core/auth/account.model';
+import { Account, AppAuthority } from 'app/core/auth/account.model';
 import { ApplicationConfigService } from '../config/application-config.service';
 
 @Injectable({ providedIn: 'root' })
@@ -43,7 +43,7 @@ export class AccountService {
     if (!Array.isArray(authorities)) {
       authorities = [authorities];
     }
-    return userIdentity.authorities.some((authority: string) => authorities.includes(authority));
+    return userIdentity.authorities.map((a: AppAuthority) => a.authority).some((authority: string) => authorities.includes(authority));
   }
 
   identity(force?: boolean): Observable<Account | null> {
@@ -78,6 +78,7 @@ export class AccountService {
     const previousUrl = this.stateStorageService.getUrl();
     if (previousUrl) {
       this.stateStorageService.clearUrl();
+      // noinspection JSIgnoredPromiseFromCall
       this.router.navigateByUrl(previousUrl);
     }
   }

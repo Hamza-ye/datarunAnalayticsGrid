@@ -1,0 +1,35 @@
+<div class="field-picker-container">
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search fields</mat-label>
+    <input matInput #searchInput (input)="onSearchInput($event)" placeholder="E.g. Household Income" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-accordion multi="true">
+    <!-- Use the new, clean @for block syntax -->
+    @for (group of filteredGroups(); track group.groupName) {
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ group.groupName }}</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list role="list">
+          @for (field of group.fields; track field.id) {
+            <mat-list-item role="listitem" class="field-item" (click)="onFieldSelected(field)">
+              <mat-icon matListItemIcon [ngSwitch]="field.dataType">
+                <mat-icon *ngSwitchCase="'NUMERIC'">calculate</mat-icon>
+                <mat-icon *ngSwitchCase="'TIMESTAMP'">calendar_today</mat-icon>
+                <mat-icon *ngSwitchCase="'DATE'">date_range</mat-icon>
+                <mat-icon *ngSwitchCase="'UID'">hub</mat-icon>
+                <mat-icon *ngSwitchCase="'TEXT'">title</mat-icon>
+                <mat-icon *ngSwitchCase="'BOOLEAN'">check_circle_outline</mat-icon>
+                <mat-icon *ngSwitchDefault>notes</mat-icon>
+              </mat-icon>
+              <div matListItemTitle>{{ field.label }}</div>
+            </mat-list-item>
+          }
+        </mat-list>
+      </mat-expansion-panel>
+    }
+  </mat-accordion>
+</div>

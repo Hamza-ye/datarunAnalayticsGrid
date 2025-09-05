@@ -17,6 +17,7 @@ import { ProfileService } from './profile.service';
   `,
   styleUrl: './page-ribbon.component.scss',
   imports: [SharedModule],
+  standalone: true,
 })
 export default class PageRibbonComponent implements OnInit {
   ribbonEnvSignal?: Signal<string | undefined>;
